@@ -1,4 +1,4 @@
 #!/bin/sh
 
-service nginx start
+service ntpd start
 service td-agent start
