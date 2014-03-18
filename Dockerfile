@@ -34,4 +34,7 @@ RUN chkconfig td-agent on
 RUN mkdir -p /var/scripts
 ADD ./scripts/startup.sh /var/scripts/startup.sh
 RUN chmod +x /var/scripts/startup.sh
+
+ENV PATH /usr/lib64/fluent/ruby/bin:$PATH
+
 CMD ["/var/scripts/startup.sh"]
