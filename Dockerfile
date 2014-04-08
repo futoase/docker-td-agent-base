@@ -14,12 +14,6 @@ RUN yum -y upgrade
 # reference from https://github.com/dotcloud/docker/issues/1240#issuecomment-21807183
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
-# setup ntpd
-RUN yum -y install ntp
-ADD ./templates/ntp.conf /etc/ntp.conf
-RUN ntpdate 0.pool.ntp.org
-RUN chkconfig ntpd on
-
 # set time zone
 RUN rm -f /etc/localtime
 RUN cp /usr/share/zoneinfo/UTC /etc/localtime
